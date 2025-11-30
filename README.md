@@ -1,11 +1,25 @@
-Start:
+# Gamech
+
+### Start containers (Build image if missing)
+
+```
 docker-compose -f docker-compose.dev.yml up -d
+```
 
-Rebuild:
+### Rebuild images and start containers:
+
+```
 docker-compose -f docker-compose.dev.yml up -d --build
+```
 
-Stop:
+### Stop containers:
+
+```
 docker compose -f docker-compose.dev.yml stop
+```
 
-Remove:
+### Remove containers, networks, and volumes:
+
+```
 docker-compose -f docker-compose.dev.yml down
+```
