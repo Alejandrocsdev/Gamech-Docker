@@ -12,3 +12,26 @@ services:
     volumes:
       - ./server:/app
       - /app/node_modules
+    networks:
+      - gamech-net
+  client-main:
+    container_name: client-main-app
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    restart: unless-stopped
+    ports:
+      - '5174:5173'
+    env_file:
+      - ./client/.env
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - gamech-net
+    depends_on:
+      - server-main
+
+networks:
+  gamech-net:
+    driver: bridge
