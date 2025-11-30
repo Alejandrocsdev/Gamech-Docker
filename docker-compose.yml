@@ -1,0 +1,11 @@
+services:
+  server-main:
+    container_name: server-main-app
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - '3001:3000'
+    env_file:
+      - ./server/.env
